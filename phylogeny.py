@@ -90,24 +90,28 @@ def run_parsnp(dir_path,genomes_dir):
     This function runs parsnp
     :param dir_path: is the location in the start of the section
     :param genomes_dir: path to the fna files
-    :return: 
+    :return:
     '''
 
     out_name = dir_path.split("/")[0:-1]
     out_name = "/".join(map(str,out_name))
-    out_file = re.compile("P_*_??_??_*")
-    files = list_directories(out_name)
-    for file in files:
-        if bool(re.match(out_file, file)) == True:
-            name = file
-    out_name = "{}/{}".format(out_name,name)
+    out_name = "{}/parsnp_out".format(out_name)
     if os.path.exists(out_name):
         print("Parsnp was already executed, {} already exist".format(out_name))
     else:
-        cmd_parsnp = "parsnp -r ! -d {} -c ".format(genomes_dir)
+        cmd_parsnp = "parsnp -r ! -d {} -c -o {}".format(genomes_dir, out_name)
         exit_message = subprocess.check_call(cmd_parsnp, shell=True)
         print("Exit status: {0}".format(exit_message))
         print("{0} Parsnp was executed".format(out_name))
+
+def list_files_new_source(path):
+    '''
+    This function lists all file in a the path
+    :param path: path of a dir
+    :return: all files path in a list
+    '''
+    files = [file for file in listdir(path) if isfile(join(path,file))]
+    return (files)
 
 def main():
     """Main code of the script"""
@@ -133,6 +137,15 @@ def main():
     os.chdir(genomes_fna_path)
     for file in fna_files:
         move_file(file, genomes_fna_path)
+
+    '''Adding extra organism from a different source'''
+    klebs = "/Users/gustavotamasco/mdrkrp/klebs"
+    k_files = list_files_new_source(klebs)
+    for k_file in k_files:
+        if ".fna" in k_file:
+            final_k_file = "{}/{}".format(klebs,k_file)
+            move_file(final_k_file, genomes_fna_path)
+
 
     '''Run parsnp'''
     run_parsnp(dirpath, genomes_fna_path)
