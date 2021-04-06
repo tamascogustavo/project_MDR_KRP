@@ -1,0 +1,15 @@
+The script use the same command as follows, but in an automatic manner.
+
+ parsnp -r ! -d <genome_dir_name> -c -o <out_name>
+
+The command was also executed in shell as follows:
+
+ parsnp -r ! -d project_MDR_KRPgenomes_parsnp_no431620 -c -o no432016 
+
+#Here we also added a few genomes from Kblebs (genomes 43 20 16 were removed from the analysis)
+
+###OUT folders
+
+sem_kbles_parsnp: only the 34 genomes from the drive
+no432016: 34 genomes +  Kblebs genomes, but 16 29 43
+parsnp_out: 34 genomes + all Kblebs genomes
