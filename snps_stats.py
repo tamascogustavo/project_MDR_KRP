@@ -190,7 +190,7 @@ def main():
     for i in range(0,len(all_names),3):
         group_for_ven = all_names[i:i+3]
         print(group_for_ven)
-        #plot_ven(group_for_ven, all_coords)
+        plot_ven(group_for_ven, all_coords)
 
 
 
