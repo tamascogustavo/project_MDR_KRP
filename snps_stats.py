@@ -121,7 +121,7 @@ def parse_info(name, file, coord_dict):
         if "NODE" in line:
             position_ref = float(line.strip().split()[0])
             position_query = float(line.strip().split()[3])
-            position_value = position_ref+position_query
+            position_value = position_ref
             coords_list.append(position_value)
             coord_dict[out_name] = coords_list
         if len(coords_list) == 0:
@@ -288,13 +288,13 @@ def main():
     res = [x for x in group_3 + group_3_parsnp if x not in group_3 or x not in group_3_parsnp]
     # print(res)
     group_3_parsnp_data = get_data(group_3_parsnp, all_coords)
-    #plot_group(group_3_parsnp_data)
+    plot_group(group_3_parsnp_data)
 
 
 
 
 
-#The comparison MI_569_MI_432_coords has a total of 34094 snps
+
 
 
 
