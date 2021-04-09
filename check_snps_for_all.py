@@ -125,7 +125,7 @@ def main():
     for elements2 in files_cluster_mid:
         if elements2 in files_cluster_closeorgs:
             files_cluster_closeorgs.remove(elements2)
-
+  
     '''
     Create all possible combinations
     '''

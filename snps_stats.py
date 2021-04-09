@@ -121,7 +121,7 @@ def parse_info(name, file, coord_dict):
         if "NODE" in line:
             position_ref = float(line.strip().split()[0])
             position_query = float(line.strip().split()[3])
-            position_value = str(math.log10(position_ref+position_query))
+            position_value = position_ref+position_query
             coords_list.append(position_value)
             coord_dict[out_name] = coords_list
         if len(coords_list) == 0:
@@ -145,6 +145,47 @@ def plot_ven(list_names, data):
     venn3([set(list1), set(list2), set(list3)], set_labels=(list_names[0], list_names[1], list_names[2]))
     plt.show()
 
+def get_data(names, info_dict):
+    '''
+    Get the info for a given name
+
+    :param names: name of the file
+    :param info_dict: dict with snps position info
+    :return: dict specific for the request
+    '''
+    data_dir = {}
+    for name in names:
+        new_name = name.split(".")[0]
+        new_name = "{}_MI_432_coords".format(new_name)
+        if new_name in info_dict.keys():
+            data_dir[new_name] = info_dict[new_name]
+    return data_dir
+
+def plot_group(data):
+    '''
+    Plot the ven diagram for manual selected groups
+    :param data: is a dict where k is name and v is the snp position
+    :return:
+    '''
+
+    all_names = [x for x in data.keys()]
+    for i in range(0, len(all_names), 3):
+        group_for_ven = all_names[i:i+3]
+        if len(group_for_ven) == 3:
+            list1 = data[group_for_ven[0]]
+            list2 = data[group_for_ven[1]]
+            list3 = data[group_for_ven[2]]
+
+            venn3([set(list1), set(list2), set(list3)], set_labels=(group_for_ven[0], group_for_ven[1], group_for_ven[2]))
+            plt.show()
+        elif len(group_for_ven) ==2:
+            list1 = data[group_for_ven[0]]
+            list2 = data[group_for_ven[1]]
+
+            venn2([set(list1), set(list2)],
+                  set_labels=(group_for_ven[0], group_for_ven[1]))
+            plt.show()
+
 
 
 def main():
@@ -163,7 +204,7 @@ def main():
     for file in snp_files:
         with open(file) as snp_data:
             get_total_snp_value(file,snp_data, snp_total)
-    #print_total_snps(snp_total)
+    print_total_snps(snp_total)
 
     '''
     Deep stats for ven Diagram
@@ -184,20 +225,76 @@ def main():
             print(n)
 
     '''
-    Creating the venn diagram 
+    Creating the venn diagram full auto
     
     '''
-    for i in range(0,len(all_names),3):
-        group_for_ven = all_names[i:i+3]
-        print(group_for_ven)
-        plot_ven(group_for_ven, all_coords)
+    #for i in range(0,len(all_names),3):
+        #group_for_ven = all_names[i:i+3]
+        #plot_ven(group_for_ven, all_coords)
+
+    '''
+    Creating manual ven for specific groups
+    '''
+    #1) Three genomes in the top of the tree
+    group_1 = ["genome24.fna", "Hemo_128.fna", "genome48.fna"]
+    group_1_data = get_data(group_1, all_coords)
+    print("----------------------------------------------------------")
+    for k, v in group_1_data.items():
+        print("The comparison {} has a total of {} snps".format(k, len(v)))
+    #plot_group(group_1_data)
+
+    #2)Organism in the middle of the tree
+    group_2 = ['genome36.fna', "MI_432.fna","MI_45.fna",
+               "URO_353.fna", "MIII_62.fna", "MI_209.fna",
+               'MI_569.fna', "URO_1219.fna"]
+
+    group_2_data = get_data(group_2, all_coords)
+    print("----------------------------------------------------------")
+    for k2, v2 in group_2_data.items():
+        print("The comparison {} has a total of {} snps".format(k2, len(v2)))
+    #plot_group(group_2_data)
+
+    #3) Organism in the botton
+
+    group_3 = ['Hemo_736.fna','URO_199.fna','URO_425.fna',
+               'MI_88.fna', 'genome41.fna', 'genome1.fna',
+               'MI_330.fna', 'MI_345.fna', 'URO_110.fna',
+               'URO_775.fna', 'MI_17.fna', 'MI_536.fna',
+               'MI_119.fna', 'MI_41.fna',  'URO_401.fna',
+               'MI_186.fna', 'MI_449.fna', 'MI_306.fna',
+               'Hemo_719.fna', 'URO_461.fna', 'MI_91.fna',
+               'Hemo_805.fna', 'URO_770.fna', 'Hemo_989.fna',
+               'MI_78.fna', 'Hemo_536.fna', 'MI_329.fna',
+               'genome36.fna', 'Hemo_825.fna', 'MI_569.fna']
+
+    group_3_data = get_data(group_3, all_coords)
+    print("----------------------------------------------------------")
+    for k3, v3 in group_3_data.items():
+        print("The comparison {} has a total of {} snps".format(k3, len(v3)))
+    #plot_group(group_3_data)
+
+    #3.1) As parsnp botton
+    group_3_parsnp = ['Hemo_736.fna', 'URO_199.fna', 'URO_425.fna',
+                      'MI_88.fna', 'genome41.fna', 'genome1.fna',
+                      'MI_330.fna', 'MI_345.fna', 'URO_110.fna',
+                      'URO_775.fna', 'MI_17.fna', 'MI_536.fna',
+                      'MI_119.fna', 'MI_41.fna', 'URO_401.fna',
+                      'MI_186.fna', 'MI_449.fna', 'MI_306.fna',
+                      'Hemo_719.fna', 'URO_461.fna', 'MI_91.fna',
+                      'Hemo_805.fna', 'URO_770.fna']
+    '''
+    To check the differences
+    '''
+    res = [x for x in group_3 + group_3_parsnp if x not in group_3 or x not in group_3_parsnp]
+    # print(res)
+    group_3_parsnp_data = get_data(group_3_parsnp, all_coords)
+    #plot_group(group_3_parsnp_data)
 
 
 
 
 
-
-
+#The comparison MI_569_MI_432_coords has a total of 34094 snps
 
 
 
