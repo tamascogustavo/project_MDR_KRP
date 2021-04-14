@@ -1,0 +1,2 @@
+#FILE	SEQUENCE	START	END	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT
+/home/murilo/plasmids2/MI_569/contigs.fasta	NODE_11_length_116020_cov_38.354568_component_0	35624	35724	pilA	1-101/450	====...........	0/0	22.44	84.16	vfdb	NP_253215	(pilA) type 4 fimbrial precursor PilA [Type IV pili (VF0082)] [Pseudomonas aeruginosa PAO1]

@@ -1,0 +1,11 @@
+#FILE	SEQUENCE	START	END	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT
+/home/murilo/plasmids2/MI_449/contigs.fasta	NODE_10_length_6850_cov_19.593931_component_0	21	127	(Phe)CatB4	443-549/549	............===	0/0	19.49	100.00	argannot	EU935739:59054-59602	(Phe)CatB4
+/home/murilo/plasmids2/MI_449/contigs.fasta	NODE_10_length_6850_cov_19.593931_component_0	197	1102	(MLS)MphA	1-906/906	===============	0/0	100.00	100.00	argannot	DQ445270:1626-2531	(MLS)MphA
+/home/murilo/plasmids2/MI_449/contigs.fasta	NODE_10_length_6850_cov_19.593931_component_0	6413	6850	(Sul)SulI	403-840/840	.......========	0/0	52.14	100.00	argannot	AF071413:6700-7539	(Sul)SulI
+/home/murilo/plasmids2/MI_449/contigs.fasta	NODE_11_length_5767_cov_19.531738_component_0	4758	5417	(Phe)CatA1	1-660/660	===============	0/0	100.00	99.85	argannot	V00622:244-903	(Phe)CatA1
+/home/murilo/plasmids2/MI_449/contigs.fasta	NODE_14_length_1474_cov_18.590881_component_0	2	877	(Bla)CTX-M-14	1-876/876	===============	0/0	100.00	100.00	argannot	AF252622:1741-2616	(Bla)CTX-M-14
+/home/murilo/plasmids2/MI_449/contigs.fasta	NODE_15_length_1294_cov_19.131962_component_0	21	127	(Phe)CatB4	443-549/549	............===	0/0	19.49	100.00	argannot	EU935739:59054-59602	(Phe)CatB4
+/home/murilo/plasmids2/MI_449/contigs.fasta	NODE_15_length_1294_cov_19.131962_component_0	265	1080	(AGly)Aph3-Ia	1-816/816	===============	0/0	100.00	99.88	argannot	HQ840942:23569-24384	(AGly)Aph3-Ia
+/home/murilo/plasmids2/MI_449/contigs.fasta	NODE_20_length_713_cov_162.957338_component_0	1	107	(Phe)CatB4	443-549/549	............===	0/0	19.49	100.00	argannot	EU935739:59054-59602	(Phe)CatB4
+/home/murilo/plasmids2/MI_449/contigs.fasta	NODE_9_length_8730_cov_19.587586_component_0	21	128	(Phe)CatB4	442-549/549	............===	0/0	19.67	100.00	argannot	EU935739:59054-59602	(Phe)CatB4
+/home/murilo/plasmids2/MI_449/contigs.fasta	NODE_9_length_8730_cov_19.587586_component_0	727	1632	(MLS)Erm42	1-906/906	===============	0/0	100.00	99.67	argannot	FR734406:1-906	(MLS)Erm42

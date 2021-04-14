@@ -1,0 +1,9 @@
+#FILE	SEQUENCE	START	END	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT
+/home/murilo/plasmids2/Hemo_825/contigs.fasta	NODE_11_length_1964_cov_110.720196_component_0	765	1586	(Bla)OXA-23	1-822/822	===============	0/0	100.00	100.00	argannot	EF120622:1499-2320	(Bla)OXA-23
+/home/murilo/plasmids2/Hemo_825/contigs.fasta	NODE_14_length_1152_cov_85.628293_component_0	153	932	(AGly)AphA6	1-780/780	===============	0/0	100.00	99.74	argannot	JF949760:695-1474	(AGly)AphA6
+/home/murilo/plasmids2/Hemo_825/contigs.fasta	NODE_4_length_13076_cov_174.320179_component_0	10307	11191	(MLS)MphE	1-885/885	===============	0/0	100.00	99.89	argannot	JF769133:8777-9661	(MLS)MphE
+/home/murilo/plasmids2/Hemo_825/contigs.fasta	NODE_4_length_13076_cov_174.320179_component_0	11247	12722	(MLS)MsrE	1-1476/1476	===============	0/0	100.00	100.00	argannot	JF769133:7246-8721	(MLS)MsrE
+/home/murilo/plasmids2/Hemo_825/contigs.fasta	NODE_6_length_10329_cov_46.308665_component_0	2310	3113	(AGly)StrA	1-804/804	===============	0/0	100.00	100.00	argannot	AB366441:22458-23261	(AGly)StrA
+/home/murilo/plasmids2/Hemo_825/contigs.fasta	NODE_6_length_10329_cov_46.308665_component_0	3113	3949	(AGly)StrB	1-837/837	===============	0/0	100.00	100.00	argannot	FJ474091:264-1100	(AGly)StrB
+/home/murilo/plasmids2/Hemo_825/contigs.fasta	NODE_6_length_10329_cov_46.308665_component_0	7322	8527	(Tet)TetB	1-1206/1206	===============	0/0	100.00	99.75	argannot	AB089594:1-1206	(Tet)TetB
+/home/murilo/plasmids2/Hemo_825/contigs.fasta	NODE_6_length_10329_cov_46.308665_component_0	9142	9957	(Sul)SulII	1-816/816	===============	0/0	100.00	100.00	argannot	EU360945:1617-2432	(Sul)SulII

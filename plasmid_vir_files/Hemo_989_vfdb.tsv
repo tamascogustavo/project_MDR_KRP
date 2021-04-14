@@ -1,0 +1,4 @@
+#FILE	SEQUENCE	START	END	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT
+/home/murilo/plasmids2/Hemo_989/contigs.fasta	NODE_15_length_95818_cov_28.935072_component_0	66335	67219	xcpR	307-1191/1509	..======/====..	10/16	58.12	75.36	vfdb	NP_251793	(xcpR) general secretion pathway protein E [xcp secretion system (VF0084)] [Pseudomonas aeruginosa PAO1]
+/home/murilo/plasmids2/Hemo_989/contigs.fasta	NODE_15_length_95818_cov_28.935072_component_0	74551	74701	xcpA/pilD	541-691/873	.........===...	0/0	17.30	76.82	vfdb	NP_253218	(xcpA/pilD) type 4 prepilin peptidase PilD [Type IV pili (VF0082)] [Pseudomonas aeruginosa PAO1]
+/home/murilo/plasmids2/Hemo_989/contigs.fasta	NODE_21_length_82185_cov_31.131176_component_0	56537	56847	mgtB	872-1182/2727	....===........	0/0	11.40	75.56	vfdb	NP_462662	(mgtB) Mg2+ transport protein [MgtBC (VF0106)] [Salmonella enterica subsp. enterica serovar Typhimurium str. LT2]
