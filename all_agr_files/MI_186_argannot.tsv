@@ -1,0 +1,13 @@
+#FILE	SEQUENCE	START	END	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT
+/home/murilo/plasmids2/MI_186/contigs.fasta	NODE_11_length_1722_cov_31.660188_component_0	1596	1702	(Phe)CatB4	443-549/549	............===	0/0	19.49	100.00	argannot	EU935739:59054-59602	(Phe)CatB4
+/home/murilo/plasmids2/MI_186/contigs.fasta	NODE_13_length_1289_cov_31.798623_component_0	211	1026	(AGly)Aph3-Ia	1-816/816	===============	0/0	100.00	99.88	argannot	HQ840942:23569-24384	(AGly)Aph3-Ia
+/home/murilo/plasmids2/MI_186/contigs.fasta	NODE_13_length_1289_cov_31.798623_component_0	1164	1270	(Phe)CatB4	443-549/549	............===	0/0	19.49	100.00	argannot	EU935739:59054-59602	(Phe)CatB4
+/home/murilo/plasmids2/MI_186/contigs.fasta	NODE_14_length_1161_cov_65.643133_component_0	162	1022	(Bla)TEM-105	1-861/861	===============	0/0	100.00	99.88	argannot	AF516720:215-1075	(Bla)TEM-105
+/home/murilo/plasmids2/MI_186/contigs.fasta	NODE_15_length_713_cov_293.058020_component_0	607	713	(Phe)CatB4	443-549/549	............===	0/0	19.49	100.00	argannot	EU935739:59054-59602	(Phe)CatB4
+/home/murilo/plasmids2/MI_186/contigs.fasta	NODE_1_length_43220_cov_71.722484_component_0	21	127	(Phe)CatB4	443-549/549	............===	0/0	19.49	100.00	argannot	EU935739:59054-59602	(Phe)CatB4
+/home/murilo/plasmids2/MI_186/contigs.fasta	NODE_1_length_43220_cov_71.722484_component_0	417	941	(AGly)Sat-2A	1-525/525	===============	0/0	100.00	100.00	argannot	X51546:518-1042	(AGly)Sat-2A
+/home/murilo/plasmids2/MI_186/contigs.fasta	NODE_1_length_43220_cov_71.722484_component_0	39252	40133	(Bla)KPC-2	1-882/882	===============	0/0	100.00	100.00	argannot	JN048642:127-1008	(Bla)KPC-2
+/home/murilo/plasmids2/MI_186/contigs.fasta	NODE_9_length_3381_cov_72.630301_component_0	21	129	(Phe)CatB4	441-549/549	............===	0/0	19.85	100.00	argannot	EU935739:59054-59602	(Phe)CatB4
+/home/murilo/plasmids2/MI_186/contigs.fasta	NODE_9_length_3381_cov_72.630301_component_0	1446	1503	(AGly)Aac3-Ib	1-58/531	==.............	0/0	10.92	100.00	argannot	L06157:555-1085	(AGly)Aac3-Ib
+/home/murilo/plasmids2/MI_186/contigs.fasta	NODE_9_length_3381_cov_72.630301_component_0	1508	2005	(Tmt)DfrA12	1-498/498	===============	0/0	100.00	100.00	argannot	Z21672:310-807	(Tmt)DfrA12
+/home/murilo/plasmids2/MI_186/contigs.fasta	NODE_9_length_3381_cov_72.630301_component_0	2425	3204	(AGly)AadA2	1-780/780	===============	0/0	100.00	99.87	argannot	X68227:66-945	(AGly)AadA2

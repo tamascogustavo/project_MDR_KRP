@@ -1,0 +1,17 @@
+#FILE	SEQUENCE	START	END	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT
+/home/murilo/genomes2/Hemo_825/SPADES/scaffolds.fasta	NODE_13_length_98278_cov_112.480932	48	1238	(Bla)beta-lactamase_class-C	1-1191/1191	===============	0/0	100.00	97.40	argannot	NC_010410:1184557-1185747	(Bla)beta-lactamase_class-C
+/home/murilo/genomes2/Hemo_825/SPADES/scaffolds.fasta	NODE_15_length_92036_cov_97.636033	13603	14298	(Bla)Mbl	1-696/696	===============	0/0	100.00	96.69	argannot	NC_010410:c1997136-1996441	(Bla)Mbl
+/home/murilo/genomes2/Hemo_825/SPADES/scaffolds.fasta	NODE_16_length_89317_cov_99.181455	29545	30369	(Bla)OXA-64	1-825/825	===============	0/0	100.00	100.00	argannot	AY750907:1-825	(Bla)OXA-64
+/home/murilo/genomes2/Hemo_825/SPADES/scaffolds.fasta	NODE_1_length_262854_cov_100.509295	74725	75742	(Bla)BlaA1	1-1018/1020	===============	0/0	99.80	90.86	argannot	NC_010410:1803480-1804499	(Bla)BlaA1
+/home/murilo/genomes2/Hemo_825/SPADES/scaffolds.fasta	NODE_23_length_74353_cov_101.937732	20231	21505	(Bla)BlaA2	1-1275/1275	===============	0/0	100.00	95.69	argannot	NC_010410:2507740-2509014	(Bla)BlaA2
+/home/murilo/genomes2/Hemo_825/SPADES/scaffolds.fasta	NODE_29_length_51307_cov_122.319793	12354	13316	(Bla)Zn-dependent_hydrolase	1-963/963	===============	0/0	100.00	98.65	argannot	NC_010410:882015-882977	(Bla)Zn-dependent_hydrolase
+/home/murilo/genomes2/Hemo_825/SPADES/scaffolds.fasta	NODE_31_length_50330_cov_122.521063	217	1038	(Bla)OXA-23	1-822/822	===============	0/0	100.00	100.00	argannot	EF120622:1499-2320	(Bla)OXA-23
+/home/murilo/genomes2/Hemo_825/SPADES/scaffolds.fasta	NODE_36_length_38684_cov_131.928666	137	695	(AGly)Aac6-Ib	48-606/606	.==============	0/0	92.24	100.00	argannot	M21682:380-985	(AGly)Aac6-Ib
+/home/murilo/genomes2/Hemo_825/SPADES/scaffolds.fasta	NODE_54_length_12976_cov_439.219707	304	1779	(MLS)MsrE	1-1476/1476	===============	0/0	100.00	100.00	argannot	JF769133:7246-8721	(MLS)MsrE
+/home/murilo/genomes2/Hemo_825/SPADES/scaffolds.fasta	NODE_54_length_12976_cov_439.219707	1835	2719	(MLS)MphE	1-885/885	===============	0/0	100.00	99.89	argannot	JF769133:8777-9661	(MLS)MphE
+/home/murilo/genomes2/Hemo_825/SPADES/scaffolds.fasta	NODE_59_length_10000_cov_73.677114	2258	3061	(AGly)StrA	1-804/804	===============	0/0	100.00	100.00	argannot	AB366441:22458-23261	(AGly)StrA
+/home/murilo/genomes2/Hemo_825/SPADES/scaffolds.fasta	NODE_59_length_10000_cov_73.677114	3061	3897	(AGly)StrB	1-837/837	===============	0/0	100.00	100.00	argannot	FJ474091:264-1100	(AGly)StrB
+/home/murilo/genomes2/Hemo_825/SPADES/scaffolds.fasta	NODE_59_length_10000_cov_73.677114	7270	8475	(Tet)TetB	1-1206/1206	===============	0/0	100.00	99.75	argannot	AB089594:1-1206	(Tet)TetB
+/home/murilo/genomes2/Hemo_825/SPADES/scaffolds.fasta	NODE_59_length_10000_cov_73.677114	9090	9905	(Sul)SulII	1-816/816	===============	0/0	100.00	100.00	argannot	EU360945:1617-2432	(Sul)SulII
+/home/murilo/genomes2/Hemo_825/SPADES/scaffolds.fasta	NODE_70_length_2606_cov_519.867932	1202	2467	PheCmlB1	1-1266/1266	===============	0/0	100.00	86.33	argannot	NG_036292:776-2041	PheCmlB1
+/home/murilo/genomes2/Hemo_825/SPADES/scaffolds.fasta	NODE_77_length_1050_cov_210.785200	170	949	(AGly)AphA6	1-780/780	===============	0/0	100.00	99.74	argannot	JF949760:695-1474	(AGly)AphA6

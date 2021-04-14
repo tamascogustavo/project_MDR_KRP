@@ -1,0 +1,13 @@
+#FILE	SEQUENCE	START	END	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT
+/home/murilo/plasmids2/MI_45/contigs.fasta	NODE_10_length_4282_cov_103.211552_component_0	21	128	(Phe)CatB4	442-549/549	............===	0/0	19.67	100.00	argannot	EU935739:59054-59602	(Phe)CatB4
+/home/murilo/plasmids2/MI_45/contigs.fasta	NODE_11_length_3964_cov_29.729476_component_0	325	1200	(Bla)CTX-M-15	1-876/876	===============	0/0	100.00	100.00	argannot	JQ686199:261-1136	(Bla)CTX-M-15
+/home/murilo/plasmids2/MI_45/contigs.fasta	NODE_12_length_2439_cov_24.548875_component_0	21	127	(Phe)CatB4	443-549/549	............===	0/0	19.49	100.00	argannot	EU935739:59054-59602	(Phe)CatB4
+/home/murilo/plasmids2/MI_45/contigs.fasta	NODE_12_length_2439_cov_24.548875_component_0	186	773	(AGly)Ant3''Ih-Aac6-IId	805-1392/1392	........=======	0/0	42.24	99.49	argannot	AF453998:3555-4946	(AGly)Ant3''Ih-Aac6-IId
+/home/murilo/plasmids2/MI_45/contigs.fasta	NODE_12_length_2439_cov_24.548875_component_0	904	1734	(Bla)OXA-1	1-831/831	===============	0/0	100.00	100.00	argannot	JQ682867:1-831	(Bla)OXA-1
+/home/murilo/plasmids2/MI_45/contigs.fasta	NODE_12_length_2439_cov_24.548875_component_0	1872	2420	(Phe)CatB4	1-549/549	===============	0/0	100.00	100.00	argannot	EU935739:59054-59602	(Phe)CatB4
+/home/murilo/plasmids2/MI_45/contigs.fasta	NODE_18_length_1288_cov_26.381568_component_0	212	1027	(AGly)Aph3-Ia	1-816/816	===============	0/0	100.00	99.88	argannot	HQ840942:23569-24384	(AGly)Aph3-Ia
+/home/murilo/plasmids2/MI_45/contigs.fasta	NODE_18_length_1288_cov_26.381568_component_0	1165	1271	(Phe)CatB4	443-549/549	............===	0/0	19.49	100.00	argannot	EU935739:59054-59602	(Phe)CatB4
+/home/murilo/plasmids2/MI_45/contigs.fasta	NODE_21_length_713_cov_343.450512_component_0	1	107	(Phe)CatB4	443-549/549	............===	0/0	19.49	100.00	argannot	EU935739:59054-59602	(Phe)CatB4
+/home/murilo/plasmids2/MI_45/contigs.fasta	NODE_26_length_311_cov_23.005435_component_0	185	291	(Phe)CatB4	443-549/549	............===	0/0	19.49	100.00	argannot	EU935739:59054-59602	(Phe)CatB4
+/home/murilo/plasmids2/MI_45/contigs.fasta	NODE_2_length_65780_cov_29.377439_component_0	59853	60509	(Flq)Qnr-S1	1-657/657	===============	0/0	100.00	100.00	argannot	AB187515:9737-10393	(Flq)Qnr-S1
+/home/murilo/plasmids2/MI_45/contigs.fasta	NODE_6_length_17101_cov_117.067338_component_0	1142	2023	(Bla)KPC-2	1-882/882	===============	0/0	100.00	100.00	argannot	JN048642:127-1008	(Bla)KPC-2

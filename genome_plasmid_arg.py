@@ -25,6 +25,7 @@ import seaborn as sns
 from matplotlib import pyplot as plt
 
 #functionsandclasses
+
 def list_directories(path):
     '''
     This function lists all file in a the path
@@ -47,6 +48,22 @@ def list_files_simple(path):
             files.append(f)
     return (files)
 
+def parse_genes_v2(name, arg_file, arg_db):
+    all_genes = []
+    new_genes = []
+    name = name = name.split("_argannot")[0]
+    if name not in arg_db:
+        for line in arg_file:
+            if line.strip().split()[4] != "GENE":
+                gene = line.strip().split()[4]
+                all_genes.append(gene)
+        arg_db[name] = all_genes
+    else:
+        for new_line in arg_file:
+            if new_line.strip().split()[4] != "GENE":
+                genes_to_add = new_line.strip().split()[4]
+                new_genes.append(genes_to_add)
+        arg_db[name]+=new_genes
 
 def list_files(all_paths, path,organism):
     '''
@@ -59,10 +76,27 @@ def list_files(all_paths, path,organism):
     complete_path = "{}/{}/ABRICATE".format(path,organism)
     files = list_directories(complete_path)
     for file in files:
-        if "_vfdb.tsv" in file:
+        if "_argannot.tsv" in file:
             file_path = "{}/{}".format(complete_path, file)
             all_paths.append(file_path)
     return all_paths
+
+def list_genome_files(all_paths, path,organism):
+    '''
+    This function lists all file in a the path
+
+    :param path:path of adir
+    :return:all files path in a list
+
+    '''
+    complete_path = "{}/{}/ANNOT/ABRICATE".format(path,organism)
+    files = list_directories(complete_path)
+    for file in files:
+        if "_argannot.tsv" in file:
+            file_path = "{}/{}".format(complete_path, file)
+            all_paths.append(file_path)
+    return all_paths
+
 
 def print_status(files):
     '''
@@ -72,7 +106,7 @@ def print_status(files):
     :return: None
     '''
 
-    message = "A total of {} file containing _vfdb.tsv in their name were found." \
+    message = "A total of {} file containing _argannot.tsv in their name were found." \
               "Next step, building a directory of these files".format(len(files))
     print(message)
 def create_genomes_dir(path):
@@ -114,7 +148,7 @@ def list_files_new_source(path):
 
 def parse_genes(name, arg_file, arg_db):
     all_genes = []
-    name = name.split("_vfdb")[0]
+    name = name.split("_argannot")[0]
     for line in arg_file:
         if line.strip().split()[4] != "GENE":
             gene = line.strip().split()[4]
@@ -132,7 +166,8 @@ def get_all_genes(metadata):
 
 def build_class_df(df_info, classes, metadata):
     for organism, genes in metadata.items():
-        abundance = Counter(genes)
+        organism_classes = sorted(([s[s.find("(") + 1:s.find(")")] for s in genes]))
+        abundance = Counter(organism_classes)
         array = get_array(abundance, classes)
         df_info[organism] = array
     return df_info
@@ -152,60 +187,42 @@ def main():
     """Main code of the script"""
 
     #Getthefiles
-    all_file_path = []
-    path_to_all_info = '/Users/gustavotamasco/Google Drive/Shared drives/Projeto MDR KRP/Dados_Sequenciamento/'
+    all_plasmid_path = []
+    path_to_all_info = '/Users/gustavotamasco/mdrkrp/project_MDR_KRP/all_agr_files'
     dirpath=os.getcwd()
     os.chdir(path_to_all_info)
-    directories = list_directories(path_to_all_info)
-
-    '''Plasmids'''
-    plasmid_path = "{}{}".format(path_to_all_info,directories[1])
-    os.chdir(plasmid_path)
-    plasmid_dir = list_directories(plasmid_path)
-    for organism in plasmid_dir:
-        plasmid_vir_files = list_files(all_file_path,plasmid_path,organism)
-    print_status(plasmid_vir_files)
-
-
-    '''Building a dir of fna files'''
-    plasmid_vir_path = "{}/plasmid_vir_files".format(dirpath)
-    create_genomes_dir(plasmid_vir_path)
-    os.chdir(plasmid_vir_path)
-    for file in plasmid_vir_files:
-        move_file(file, plasmid_vir_path)
+    files = list_files_simple(path_to_all_info)
 
     '''Building metadata'''
     #All genes to each genome
-    plasmid_vir_metadata = {}
-    plasmid_vir = list_files_simple(plasmid_vir_path)
-    for f in plasmid_vir:
-        with open(f) as plasmid_arg_info:
-            parse_genes(f, plasmid_arg_info, plasmid_vir_metadata)
+    metadata = {}
+    for file in files:
+        with open(file) as arg_info:
+            parse_genes_v2(file, arg_info, metadata)
+
+
     #All genes that occured
-    all_genes = sorted(set(get_all_genes(plasmid_vir_metadata)))
+    all_genes = sorted(set(get_all_genes(metadata)))
 
     #All arg classes
-    print(all_genes)
+    all_arg_classes = list(filter(None,sorted(set([s[s.find("(")+1:s.find(")")] for s in all_genes]))))
+    #print(all_arg_classes)
 
     '''Build dataframe for the classes plot'''
     df_info = {}
-
-    df_major_classes = build_class_df(df_info, all_genes, plasmid_vir_metadata)
-    df = pd.DataFrame.from_dict(df_major_classes, orient='index', columns=['fyuA', 'irp1', 'irp2', 'mgtB', 'pilA', 'xcpA/pilD', 'xcpR', 'ybtA', 'ybtE', 'ybtP', 'ybtQ', 'ybtS', 'ybtT', 'ybtU', 'ybtX'])
+    df_major_classes = build_class_df(df_info, all_arg_classes, metadata)
+    df = pd.DataFrame.from_dict(df_major_classes, orient='index', columns=['AGly', 'AGly/Flqn', 'Bla', 'Fcyn', 'Flq', 'MLS', 'Phe', 'PheCmlB', 'Rif', 'Sul', 'Tet', 'Tmt'])
     #df = df.transpose()
     #df.to_csv('arg_genes.csv', sep='\t', encoding='utf-8')
-    sns.set(font_scale=0.65)
+    #sns.set(font_scale=0.65)
     #Need both
-    #sns.clustermap(df, label='small', cmap="vlag", standard_scale=1, linewidths=0.1)
-    full_plot = sns.clustermap(df, label='small', cmap="vlag", linewidths=0.1)
+    not_full = sns.clustermap(df, label='small', cmap="vlag", standard_scale=1, linewidths=0)
+    full_plot = sns.clustermap(df, label='small', cmap="vlag", linewidths=0)
     #plt.title('Antibiotic resistance genes across 34 organism', fontsize=15)
     #sns.set(font_scale=1)
-
     plt.show()
-    full_plot.savefig("plasmid_vir.pdf", bbox_inches='tight')
-
-
-
+    full_plot.savefig("genome_plasmid_arg.pdf", bbox_inches='tight')
+    not_full.savefig("genome_plasmid_arg_not_scalled.pdf", bbox_inches='tight')
 
 
 

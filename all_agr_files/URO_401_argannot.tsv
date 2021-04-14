@@ -1,0 +1,12 @@
+#FILE	SEQUENCE	START	END	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT
+/home/murilo/plasmids2/URO_401/contigs.fasta	NODE_10_length_6837_cov_58.584352_component_0	288	1169	(Bla)KPC-2	1-882/882	===============	0/0	100.00	100.00	argannot	JN048642:127-1008	(Bla)KPC-2
+/home/murilo/plasmids2/URO_401/contigs.fasta	NODE_11_length_5767_cov_28.171277_component_0	351	1010	(Phe)CatA1	1-660/660	===============	0/0	100.00	99.85	argannot	V00622:244-903	(Phe)CatA1
+/home/murilo/plasmids2/URO_401/contigs.fasta	NODE_14_length_1474_cov_27.458463_component_0	2	877	(Bla)CTX-M-14	1-876/876	===============	0/0	100.00	100.00	argannot	AF252622:1741-2616	(Bla)CTX-M-14
+/home/murilo/plasmids2/URO_401/contigs.fasta	NODE_15_length_1294_cov_25.053128_component_0	21	127	(Phe)CatB4	443-549/549	............===	0/0	19.49	100.00	argannot	EU935739:59054-59602	(Phe)CatB4
+/home/murilo/plasmids2/URO_401/contigs.fasta	NODE_15_length_1294_cov_25.053128_component_0	265	1080	(AGly)Aph3-Ia	1-816/816	===============	0/0	100.00	99.88	argannot	HQ840942:23569-24384	(AGly)Aph3-Ia
+/home/murilo/plasmids2/URO_401/contigs.fasta	NODE_20_length_713_cov_239.083618_component_0	1	107	(Phe)CatB4	443-549/549	............===	0/0	19.49	100.00	argannot	EU935739:59054-59602	(Phe)CatB4
+/home/murilo/plasmids2/URO_401/contigs.fasta	NODE_21_length_657_cov_43.571698_component_0	531	637	(Phe)CatB4	443-549/549	............===	0/0	19.49	100.00	argannot	EU935739:59054-59602	(Phe)CatB4
+/home/murilo/plasmids2/URO_401/contigs.fasta	NODE_6_length_14900_cov_31.967170_component_0	162	1022	(Bla)TEM-105	1-861/861	===============	0/0	100.00	99.88	argannot	AF516720:215-1075	(Bla)TEM-105
+/home/murilo/plasmids2/URO_401/contigs.fasta	NODE_6_length_14900_cov_31.967170_component_0	1437	2273	(AGly)StrB	1-837/837	===============	0/0	100.00	100.00	argannot	FJ474091:264-1100	(AGly)StrB
+/home/murilo/plasmids2/URO_401/contigs.fasta	NODE_6_length_14900_cov_31.967170_component_0	2273	3076	(AGly)StrA	1-804/804	===============	0/0	100.00	99.88	argannot	AB366441:22458-23261	(AGly)StrA
+/home/murilo/plasmids2/URO_401/contigs.fasta	NODE_6_length_14900_cov_31.967170_component_0	3137	3952	(Sul)SulII	1-816/816	===============	0/0	100.00	100.00	argannot	EU360945:1617-2432	(Sul)SulII
