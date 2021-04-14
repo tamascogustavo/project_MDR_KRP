@@ -40,8 +40,11 @@ def list_files_simple(path):
     :param path: path of a dir
     :return: all files path in a list
     '''
-
-    files = [file for file in listdir(path) if isfile(join(path,file))]
+    files = []
+    files_ = [file for file in listdir(path) if isfile(join(path,file))]
+    for f in files_:
+        if ".tsv" in f:
+            files.append(f)
     return (files)
 
 
@@ -203,7 +206,7 @@ def main():
 
     #All arg classes
     all_arg_classes = list(filter(None,sorted(set([s[s.find("(")+1:s.find(")")] for s in all_genes]))))
-    all_arg_classes.remove("Fl")
+
 
 
     '''Build dataframe for the classes plot'''
@@ -213,9 +216,13 @@ def main():
     df = pd.DataFrame.from_dict(df_major_classes, orient='index', columns=['AGly', 'AGly/Flqn', 'Bla', 'Fcyn', 'Flq', 'MLS', 'Phe', 'PheCmlB', 'Rif', 'Sul', 'Tet', 'Tmt'])
     #df = df.transpose()
     #df.to_csv('arg_genes.csv', sep='\t', encoding='utf-8')
-
-    ax = sns.heatmap(df, linewidth=0.5, label='small')
-    plt.show()
+    sns.set(font_scale=0.65)
+    #Need both
+    sns.clustermap(df, label='small', cmap="vlag",  standard_scale=1)
+    sns.clustermap(df, label='small', cmap="vlag")
+    #plt.title('Antibiotic resistance genes across 34 organism', fontsize=15)
+    #sns.set(font_scale=1)
+    #plt.show()
 
 
 
