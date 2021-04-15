@@ -152,8 +152,7 @@ def get_all_genes(metadata):
 
 def build_class_df(df_info, classes, metadata):
     for organism, genes in metadata.items():
-        organism_classes = sorted(([s[s.find("(") + 1:s.find(")")] for s in genes]))
-        abundance = Counter(organism_classes)
+        abundance = Counter(genes)
         array = get_array(abundance, classes)
         df_info[organism] = array
     return df_info
@@ -204,28 +203,26 @@ def main():
             parse_genes(f, vir_info, vir_metadata)
     #All genes that occured
     all_genes = sorted(set(get_all_genes(vir_metadata)))
+    #print(all_genes)
 
-    #All arg classes
-    all_vir_classes = list(filter(None,sorted(set([s[s.find("(")+1:s.find(")")] for s in all_genes]))))
-    print(all_vir_classes)
+
 
     '''Build dataframe for the classes plot'''
     df_info = {}
 
-    df_major_classes = build_class_df(df_info, all_vir_classes, vir_metadata)
-    df = pd.DataFrame.from_dict(df_major_classes, orient='index', columns=['clp', 'ent',
-    'fep', 'fim', 'fyu', 'irp', 'mgt', 'omp', 'pil', 'xcp', 'xcpA/pil', 'yagV/ecp', 'yagW/ecp',
-    'yagX/ecp', 'yagY/ecp', 'yagZ/ecp', 'ybt', 'ykgK/ecp'])
+    df_major_classes = build_class_df(df_info, all_genes, vir_metadata)
+    df = pd.DataFrame.from_dict(df_major_classes, orient='index', columns=['clpC', 'entA', 'entB', 'entE', 'entS', 'fepA', 'fepB', 'fepC', 'fepD', 'fepG', 'fimA', 'fimE', 'fyuA', 'irp1', 'irp2', 'mgtB', 'mgtC', 'ompA', 'pilA', 'xcpA/pilD', 'xcpR', 'yagV/ecpE', 'yagW/ecpD', 'yagX/ecpC', 'yagY/ecpB', 'yagZ/ecpA', 'ybtA', 'ybtE', 'ybtP', 'ybtQ', 'ybtS', 'ybtT', 'ybtU', 'ybtX', 'ykgK/ecpR'])
     #df = df.transpose()
     #df.to_csv('arg_genes.csv', sep='\t', encoding='utf-8')
     #sns.set(font_scale=0.65)
-    #Need both
-    sns.clustermap(df, label='small', cmap="vlag",  standard_scale=1, linewidths=0.1)
-    #sns.clustermap(df, label='small', cmap="vlag", linewidths=0.1)
-    #plt.title('Antibiotic resistance genes across 34 organism', fontsize=15)
-    #sns.set(font_scale=1)
+    # Need both
+    not_full = sns.clustermap(df, label='small', cmap="vlag", standard_scale=1, linewidths=0)
+    full_plot = sns.clustermap(df, label='small', cmap="vlag", linewidths=0)
+    # plt.title('Antibiotic resistance genes across 34 organism', fontsize=15)
+    # sns.set(font_scale=1)
     plt.show()
-
+    full_plot.savefig("genome_vir.pdf", bbox_inches='tight')
+    not_full.savefig("genome_vir_scale1.pdf", bbox_inches='tight')
 
 
 

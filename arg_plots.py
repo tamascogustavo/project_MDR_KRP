@@ -217,12 +217,14 @@ def main():
     #df = df.transpose()
     #df.to_csv('arg_genes.csv', sep='\t', encoding='utf-8')
     sns.set(font_scale=0.65)
-    #Need both
-    sns.clustermap(df, label='small', cmap="vlag",  standard_scale=1)
-    sns.clustermap(df, label='small', cmap="vlag")
-    #plt.title('Antibiotic resistance genes across 34 organism', fontsize=15)
-    #sns.set(font_scale=1)
-    #plt.show()
+    # Need both
+    not_full = sns.clustermap(df, label='small', cmap="vlag", standard_scale=1, linewidths=0)
+    full_plot = sns.clustermap(df, label='small', cmap="vlag", linewidths=0)
+    # plt.title('Antibiotic resistance genes across 34 organism', fontsize=15)
+    # sns.set(font_scale=1)
+    plt.show()
+    full_plot.savefig("genome_arg.pdf", bbox_inches='tight')
+    not_full.savefig("genome_arg_not_scalled.pdf", bbox_inches='tight')
 
 
 
