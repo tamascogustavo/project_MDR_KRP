@@ -147,10 +147,9 @@ def run_blastn(organism):
     if os.path.exists(out_name):
         print("{} already exist".format(out_name))
     else:
-        cmd = "blastn –db nt –query {} –out {} -remote ".format(organism, out_name)
+        cmd = "blastn -query {} -db plasmid_db -sorthits 4 -out {} ".format(organism, out_name)
         subprocess.check_call(cmd, shell=True)
         print("{} was generated".format(out_name))
-
 
 
 def list_files_new_source(path):
@@ -161,6 +160,45 @@ def list_files_new_source(path):
     '''
     files = [file for file in listdir(path) if isfile(join(path,file))]
     return (files)
+
+def parse_blast(file, path, data):
+    file_path = "{}/{}".format(path, file)
+    organis = file
+    data[organis] = []
+    with open(file_path) as info:
+        content = info.readlines()
+        size = len(content)
+        print(organis)
+        print("____________________________________________________________________________________")
+        for i in range(0,size):
+            if "Query= NODE" in content[i]:
+                major_info = content[i:i+20]
+                contig = major_info[0].strip()
+                len_contig = major_info[3].strip()
+                info_contig = major_info[5].strip()
+                best_hit1_contigs = major_info[7].strip()
+                best_hit2_contigs = major_info[8].strip()
+                best_hit3_contigs = major_info[9].strip()
+                data[organis] = (contig, len_contig, info_contig,
+                                   best_hit1_contigs, best_hit2_contigs, best_hit3_contigs)
+                if int(len_contig.split("=")[-1]) >= 5000 and int(len_contig.split("=")[-1]) <= 150000:
+                    try:
+                        if int(best_hit1_contigs.split()[3].split("%")[0]) >= 60:
+                            #print(best_hit1_contigs.split()[3].split("%")[0])
+                            print(contig)
+                            print(len_contig)
+                            print(info_contig)
+                            print(best_hit1_contigs)
+                            print(best_hit2_contigs)
+                            print(best_hit3_contigs)
+                    except:
+                        pass
+
+
+
+
+
+
 
 def main():
     """Main code of the script"""
@@ -187,6 +225,14 @@ def main():
         if "plasflow_plasmids" in organism:
             run_plasclass(organism)
             run_blastn(organism)
+
+    '''Mining info'''
+    data = {}
+    blast_info_path = "/Users/gustavotamasco/mdrkrp/plasmids/plasmid_blast"
+    blast_files = list_files_new_source(blast_info_path)
+    for org_b in blast_files:
+        if "genome" not in org_b:
+            parse_blast(org_b, blast_info_path, data)
 
 
 
