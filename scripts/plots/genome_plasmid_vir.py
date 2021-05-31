@@ -205,12 +205,13 @@ def main():
                  "MI_78_vfdb_genome.tsv"]
 
     final_files = list([x for x in files if x not in bad_files])
+    print(len(final_files))
 
 
     '''Building metadata'''
     #All genes to each genome
     metadata = {}
-    for file in files:
+    for file in final_files:
         with open(file) as vir_info:
             parse_genes_v2(file, vir_info, metadata)
 
@@ -225,7 +226,7 @@ def main():
     '''Build dataframe for the classes plot'''
     df_info = {}
     df_major_classes = build_class_df(df_info, all_genes, metadata)
-    df = pd.DataFrame.from_dict(df_major_classes, orient='index', columns=['clpC', 'entA', 'entB', 'entE', 'entS', 'fepA', 'fepB', 'fepC', 'fepD', 'fepG', 'fimA', 'fimE', 'fyuA', 'irp1', 'irp2', 'mgtB', 'mgtC', 'ompA', 'pilA', 'xcpA/pilD', 'xcpR', 'yagV/ecpE', 'yagW/ecpD', 'yagX/ecpC', 'yagY/ecpB', 'yagZ/ecpA', 'ybtA', 'ybtE', 'ybtP', 'ybtQ', 'ybtS', 'ybtT', 'ybtU', 'ybtX', 'ykgK/ecpR'])
+    df = pd.DataFrame.from_dict(df_major_classes, orient='index', columns=['entA', 'entB', 'entE', 'entS', 'fepA', 'fepB', 'fepC', 'fepD', 'fepG', 'fimA', 'fimE', 'fyuA', 'irp1', 'irp2', 'mgtB', 'mgtC', 'ompA', 'xcpA/pilD', 'xcpR', 'yagV/ecpE', 'yagW/ecpD', 'yagX/ecpC', 'yagY/ecpB', 'yagZ/ecpA', 'ybtA', 'ybtE', 'ybtP', 'ybtQ', 'ybtS', 'ybtT', 'ybtU', 'ybtX', 'ykgK/ecpR'])
     #df = df.transpose()
     #df.to_csv('arg_genes.csv', sep='\t', encoding='utf-8')
     #sns.set(font_scale=0.65)
