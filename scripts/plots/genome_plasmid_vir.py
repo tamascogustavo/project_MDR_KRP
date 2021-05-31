@@ -195,6 +195,18 @@ def main():
     os.chdir(path_to_all_info)
     files = list_files_simple(path_to_all_info)
 
+    bad_files = ["Hemo_536_vfdb_genome.tsv", "MI_119_vfdb.tsv", "Hemo_536_vfdb.tsv",
+                 "MI_119_vfdb_genome.tsv",
+                 "URO_775_vfdb_genome.tsv", "Hemo_825_vfdb.tsv", "URO_775_vfdb.tsv",
+                 "Hemo_825_vfdb_genome.tsv",
+                 "MI_329_vfdb.tsv", "MI_569_vfdb_genome.tsv", "MI_329_vfdb_genome.tsv",
+                 "MI_569_vfdb.tsv",
+                 "Hemo_989_vfdb_genome.tsv", "MI_78_vfdb.tsv", "Hemo_989_vfdb.tsv",
+                 "MI_78_vfdb_genome.tsv"]
+
+    final_files = list([x for x in files if x not in bad_files])
+
+
     '''Building metadata'''
     #All genes to each genome
     metadata = {}
@@ -223,8 +235,8 @@ def main():
     #plt.title('Antibiotic resistance genes across 34 organism', fontsize=15)
     #sns.set(font_scale=1)
     plt.show()
-    full_plot.savefig("genome_plasmid_vir.pdf", bbox_inches='tight')
-    #not_full.savefig("genome_plasmid_vir_not_scalled.pdf", bbox_inches='tight')
+    full_plot.savefig("final_genome_plasmid_vir.pdf", bbox_inches='tight')
+    #not_full.savefig("final_genome_plasmid_vir_scalled.pdf", bbox_inches='tight')
 
 
 
