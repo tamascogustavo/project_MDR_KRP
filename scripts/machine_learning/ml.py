@@ -17,6 +17,7 @@ from os import listdir
 from os.path import isfile,join
 import shutil
 import re
+import pandas as pd
 
 #functionsandclasses
 def list_directories(path):
@@ -90,15 +91,24 @@ def run_dsk_translator(file, kmer_list):
         print("{} was created".format(out_name))
 
 def parse_all_info(file, organism, organism_dict):
+    '''
+    This function creates a dictionary for organisms and their kmers
+
+    The filter using count >=2 is the same used by the authors of the original
+    paper
+    :param file: is a openned file of kmers count
+    :param organism: is the name of the file
+    :param organism_dict: is a meta dict containing all info
+    :return: updated dict
+    '''
     organism_name = organism.split("_kmers_dataset.txt")
     organism_dict[organism] = []
     for line in file:
-        info = line.strip().split()[0]
-        organism_dict[organism].append(info)
+        count = int(line.strip().split()[-1])
+        if count >=2:
+            info = line.strip().split()[0]
+            organism_dict[organism].append(info)
     return organism_dict
-
-
-
 
 
 def list_files(path):
@@ -110,6 +120,31 @@ def list_files(path):
     files = [file for file in listdir(path) if isfile(join(path,file))]
     return (files)
 
+def build_database(organis_dict, all_kmers, metadata):
+    if os.path.exists("all_dataset_kmers.csv"):
+        print("all_dataset_kmers.csv already exists")
+    else:
+        all_kmers = list(all_kmers)
+        names = [x for x in organis_dict.keys()]
+        for name in names:
+            final_name = name.split("_kmers_dataset.txt")[0]
+            metadata.setdefault(final_name, [])
+
+            for i in range(len(all_kmers)):
+                pos = all_kmers[i]
+                if pos in organis_dict[name]:
+                    pos =1
+                    metadata[final_name].append(pos)
+                else:
+                    pos = 0
+                    metadata[final_name].append(pos)
+    return metadata
+
+
+
+
+
+
 def main():
     """Main code of the script"""
 
@@ -117,6 +152,7 @@ def main():
     all_dsk_out = []
     all_kmers_isolates = []
     organism_dict = {}
+    metadata = {}
     path_to_all_info = '/Users/gustavotamasco/mdrkrp/genomes_final/genomes'
     genomes = list_files(path_to_all_info)
     genomes = ["{}/{}".format(path_to_all_info,x) for x in genomes]
@@ -141,7 +177,28 @@ def main():
     rows = is the organism name followed by presence absence or each kmer
     
     '''
+    build_database(organism_dict, flat_list_kmer, metadata)
+    if os.path.exists("all_dataset_kmers.csv"):
+        print("done")
+    else:
+        df = pd.DataFrame.from_dict(metadata, orient='index')
+        #df = df.transpose()
+        df.to_csv('all_dataset_kmers.csv', sep='\t', encoding='utf-8')
 
+    #rename colnames
+    if os.path.exists('mdkrp_dataset_kmers.csv'):
+        print("all right for running ")
+    else:
+        data = pd.read_csv("all_dataset_kmers.csv", sep='\t')
+        kmer_col = list(flat_list_kmer)
+        col_names = ["isolate"] + kmer_col
+
+        data.columns = list(col_names)
+
+        data.to_csv('mdkrp_dataset_kmers.csv', sep='\t', encoding='utf-8')
+
+    for x in organism_dict.keys():
+        print(x)
 
 
 
